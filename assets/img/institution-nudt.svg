@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="National University of Defense Technology">
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#1F3A5F"/>
+  <circle cx="32" cy="32" r="22" fill="none" stroke="#C9A227" stroke-width="2"/>
+  <text x="32" y="38" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" font-weight="700" fill="#F5F0E6">NUDT</text>
+</svg>

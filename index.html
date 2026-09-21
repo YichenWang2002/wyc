@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yichen Wang - Homepage</title>
+  <meta name="description" content="Yichen Wang (王弈宸), Ph.D. student at National University of Defense Technology. Research on agents, agent memory, post-training, and long-horizon task planning.">
+  <meta name="keywords" content="Yichen Wang, 王弈宸, NUDT, agents, agent memory, long-horizon planning, post-training">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/a860a211d3.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="assets/css/font_sans_serif.css">
+  <link rel="stylesheet" href="assets/css/theme-luka.css">
+  <style>
+    body.theme-luka .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    body.theme-luka .lang-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      border: 1px solid var(--luka-border);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--luka-text);
+      font-size: 13px;
+      font-weight: 600;
+      overflow: hidden;
+      cursor: pointer;
+      padding: 0;
+      height: 36px;
+    }
+    body.theme-luka .lang-toggle span {
+      padding: 8px 12px;
+      line-height: 1;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    body.theme-luka .lang-toggle span.active {
+      background: var(--luka-accent);
+      color: #fff;
+    }
+    body.theme-luka .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    body.theme-luka .tag {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--luka-border);
+      color: var(--luka-accent);
+      font-size: 12px;
+      font-weight: 500;
+      background: transparent;
+    }
+    body.theme-luka .research-line {
+      margin-top: 6px;
+      color: var(--luka-secondary);
+      font-size: 14px;
+    }
+    body.theme-luka .sidebar-affiliation {
+      margin: 4px 0 18px;
+      color: var(--luka-secondary);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    body.theme-luka .sidebar-affiliation .cn {
+      display: block;
+    }
+  </style>
+</head>
+<body class="theme-luka">
+  <nav class="top-nav">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a href="./" data-i18n="navHome">Home</a>
+      </div>
+      <div class="nav-right">
+        <button id="langToggle" class="lang-toggle" title="Switch language" aria-label="Switch language">
+          <span id="langEn" class="active">EN</span>
+          <span id="langZh">中文</span>
+        </button>
+        <button id="themeToggle" class="theme-toggle" title="Toggle theme" aria-label="Toggle theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrapper">
+    <header class="sidebar">
+      <div class="profile-card">
+        <a class="image avatar" href="./">
+          <img src="assets/img/avatar.jpg" alt="Yichen Wang">
+        </a>
+
+        <h1 class="site-name" data-i18n="name">Yichen Wang</h1>
+        <p class="sidebar-affiliation">
+          <span data-i18n="affilLine1">Ph.D. Student</span><br>
+          <span data-i18n="affilLine2">College of Computer Science and Technology</span><br>
+          <span data-i18n="affilLine3">National University of Defense Technology</span>
+        </p>
+        <p class="site-email">wangyichen.wyc@nudt.edu.cn</p>
+
+        <div class="social-icons">
+          <a href="mailto:wangyichen.wyc@nudt.edu.cn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+          <a href="https://github.com/YichenWang2002" title="GitHub" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+        </div>
+
+        <div class="tag-list" id="interestTags" aria-label="Research interests"></div>
+      </div>
+    </header>
+
+    <section class="content">
+      <div class="section" id="about">
+        <h2 class="section-title" data-i18n="aboutTitle">About Me</h2>
+        <div class="section-body">
+          <p data-i18n="aboutP1"></p>
+          <p data-i18n="aboutP2"></p>
+        </div>
+      </div>
+
+      <div class="section" id="interests">
+        <h2 class="section-title" data-i18n="interestsTitle">Research Interests</h2>
+        <div class="section-body">
+          <div class="tag-list" id="interestTagsMain"></div>
+          <p class="research-line" data-i18n="interestsNote"></p>
+        </div>
+      </div>
+
+      <div class="section" id="education">
+        <h2 class="section-title" data-i18n="eduTitle">Education</h2>
+        <div class="section-body">
+          <div class="card timeline-item">
+            <div class="experience-item">
+              <img src="assets/img/institution-nudt.svg" alt="NUDT" class="institution-logo">
+              <div class="experience-content">
+                <p class="exp-title"><strong data-i18n="edu2School">National University of Defense Technology</strong></p>
+                <p class="exp-detail" data-i18n="edu2Dept">College of Computer Science and Technology</p>
+                <p class="exp-detail" data-i18n="edu2Degree">Ph.D. in Computer Science and Technology</p>
+                <p class="exp-period">2025 – <span data-i18n="present">Present</span></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card timeline-item">
+            <div class="experience-item">
+              <img src="assets/img/institution-ysu.svg" alt="Yanshan University" class="institution-logo">
+              <div class="experience-content">
+                <p class="exp-title"><strong data-i18n="edu1School">Yanshan University</strong></p>
+                <p class="exp-detail" data-i18n="edu1Dept">College of Information Science and Engineering</p>
+                <p class="exp-detail" data-i18n="edu1Degree">B.S. in Software Engineering</p>
+                <p class="exp-detail" data-i18n="edu1Meta">GPA: 3.8 / 4.5 · Top 3%</p>
+                <p class="exp-period">2021 – 2025</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>
+        &copy; <span id="year"></span> Yichen Wang. <span data-i18n="rights">All rights reserved.</span>
+        <br>
+        <span class="template-credit"><a href="https://github.com/wzsyyh/luka-homepage-template">Luka Homepage Template</a> by <a href="https://wzsyyh.github.io/">Yuheng Yang</a></span>
+      </p>
+    </footer>
+  </div>
+
+  <script src="assets/js/scale.fix.js"></script>
+  <script>
+    (function() {
+      const i18n = {
+        en: {
+          navHome: 'Home',
+          name: 'Yichen Wang',
+          affilLine1: 'Ph.D. Student (2nd year, entered 2025)',
+          affilLine2: 'College of Computer Science and Technology',
+          affilLine3: 'National University of Defense Technology',
+          aboutTitle: 'About Me',
+          aboutP1: 'I am <strong>Yichen Wang</strong> (王弈宸), a second-year Ph.D. student at the College of Computer Science and Technology, National University of Defense Technology (NUDT), Changsha, China. I entered the Ph.D. program in 2025.',
+          aboutP2: 'My research focuses on large language models and agents. I am currently interested in long-horizon task planning for agents, and especially in how small-parameter models can acquire capabilities typically associated with large models.',
+          interestsTitle: 'Research Interests',
+          interestsNote: 'Current focus: making small models capable on agent long-horizon planning.',
+          interests: ['Agents', 'Agent Memory', 'OPD', 'Post-training', 'Long-horizon Task Planning'],
+          eduTitle: 'Education',
+          edu2School: 'National University of Defense Technology',
+          edu2Dept: 'College of Computer Science and Technology',
+          edu2Degree: 'Ph.D. in Computer Science and Technology',
+          present: 'Present',
+          edu1School: 'Yanshan University',
+          edu1Dept: 'College of Information Science and Engineering',
+          edu1Degree: 'B.S. in Software Engineering',
+          edu1Meta: 'GPA: 3.8 / 4.5 · Top 3%',
+          rights: 'All rights reserved.'
+        },
+        zh: {
+          navHome: '首页',
+          name: '王弈宸',
+          affilLine1: '博士研究生（2025 级 · 二年级）',
+          affilLine2: '计算机学院',
+          affilLine3: '国防科技大学',
+          aboutTitle: '关于我',
+          aboutP1: '我是<strong>王弈宸</strong>（Yichen Wang），国防科技大学计算机学院 2025 级博士研究生。',
+          aboutP2: '我的研究兴趣为大模型和智能体，当前关注智能体长程任务规划问题，尤其关注如何让小参数量的模型具备大模型的能力。',
+          interestsTitle: '研究兴趣',
+          interestsNote: '当前重点：让小模型在智能体长程规划任务上具备更强能力。',
+          interests: ['智能体', '智能体记忆', 'OPD', '后训练', '长程任务规划'],
+          eduTitle: '教育经历',
+          edu2School: '国防科技大学',
+          edu2Dept: '计算机学院',
+          edu2Degree: '计算机科学与技术 · 博士在读',
+          present: '至今',
+          edu1School: '燕山大学',
+          edu1Dept: '信息科学与工程学院',
+          edu1Degree: '软件工程 · 工学学士',
+          edu1Meta: 'GPA：3.8 / 4.5 · 专业排名前 3%',
+          rights: '保留所有权利。'
+        }
+      };
+
+      function getLang() {
+        return localStorage.getItem('lang') === 'zh' ? 'zh' : 'en';
+      }
+
+      function setLang(lang) {
+        const dict = i18n[lang];
+        document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+        document.title = lang === 'zh' ? '王弈宸 - 主页' : 'Yichen Wang - Homepage';
+
+        document.querySelectorAll('[data-i18n]').forEach(function(el) {
+          const key = el.getAttribute('data-i18n');
+          if (dict[key] == null) return;
+          el.innerHTML = dict[key];
+        });
+
+        const tags = dict.interests.map(function(t) {
+          return '<span class="tag">' + t + '</span>';
+        }).join('');
+        const sideTags = document.getElementById('interestTags');
+        const mainTags = document.getElementById('interestTagsMain');
+        if (sideTags) sideTags.innerHTML = tags;
+        if (mainTags) mainTags.innerHTML = tags;
+
+        document.getElementById('langEn').classList.toggle('active', lang === 'en');
+        document.getElementById('langZh').classList.toggle('active', lang === 'zh');
+        localStorage.setItem('lang', lang);
+      }
+
+      const themeToggle = document.getElementById('themeToggle');
+      const icon = themeToggle.querySelector('i');
+
+      function setTheme(isDark) {
+        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        icon.classList.toggle('fa-sun', isDark);
+        icon.classList.toggle('fa-moon', !isDark);
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      }
+
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setTheme(savedTheme ? savedTheme === 'dark' : prefersDark);
+
+      themeToggle.addEventListener('click', function() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        setTheme(!isDark);
+      });
+
+      document.getElementById('langToggle').addEventListener('click', function() {
+        setLang(getLang() === 'zh' ? 'en' : 'zh');
+      });
+
+      setLang(getLang());
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.section').forEach(function(el) {
+          observer.observe(el);
+        });
+      } else {
+        document.querySelectorAll('.section').forEach(function(el) {
+          el.classList.add('visible');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
